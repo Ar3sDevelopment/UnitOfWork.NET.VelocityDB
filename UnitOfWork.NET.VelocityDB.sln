@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitOfWork.NET.VelocityDB", "UnitOfWork.NET.VelocityDB\UnitOfWork.NET.VelocityDB.csproj", "{B5B759E7-1696-40D0-BDBA-36260E5B104D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitOfWork.NET.VelocityDB.NUnit", "UnitOfWork.NET.VelocityDB.NUnit\UnitOfWork.NET.VelocityDB.NUnit.csproj", "{A6550F4D-9142-4E1C-BDB4-8B5B8B114D32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitOfWork.NET.VelocityDB.NUnit.Data", "UnitOfWork.NET.VelocityDB.NUnit.Data\UnitOfWork.NET.VelocityDB.NUnit.Data.csproj", "{0BDDD9C4-FDA4-4A99-B4CD-92342AE4AFE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5B759E7-1696-40D0-BDBA-36260E5B104D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B759E7-1696-40D0-BDBA-36260E5B104D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B759E7-1696-40D0-BDBA-36260E5B104D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B759E7-1696-40D0-BDBA-36260E5B104D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6550F4D-9142-4E1C-BDB4-8B5B8B114D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6550F4D-9142-4E1C-BDB4-8B5B8B114D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6550F4D-9142-4E1C-BDB4-8B5B8B114D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6550F4D-9142-4E1C-BDB4-8B5B8B114D32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BDDD9C4-FDA4-4A99-B4CD-92342AE4AFE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BDDD9C4-FDA4-4A99-B4CD-92342AE4AFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BDDD9C4-FDA4-4A99-B4CD-92342AE4AFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BDDD9C4-FDA4-4A99-B4CD-92342AE4AFE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
