@@ -5,11 +5,11 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle("UnitOfWork.NET.VelocityDB")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("UnitOfWork.NET.VelocityDB")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Matteo Bruni")]
+[assembly: AssemblyCompany("Caelan")]
+[assembly: AssemblyProduct("UnitOfWork.NET.VelocityDB")]
+[assembly: AssemblyCopyright("Caelan 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

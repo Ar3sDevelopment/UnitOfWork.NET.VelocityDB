@@ -2,10 +2,10 @@
 using System;
 namespace UnitOfWork.NET.VelocityDB.NUnit
 {
-	[TestFixture()]
+	[TestFixture]
 	public class Test
 	{
-		[Test()]
+		[Test]
 		public void TestCase()
 		{
 		}
