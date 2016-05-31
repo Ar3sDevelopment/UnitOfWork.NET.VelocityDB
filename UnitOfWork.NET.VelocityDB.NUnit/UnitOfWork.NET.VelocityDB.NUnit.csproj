@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -51,10 +51,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\TestUnitOfWork.cs" />
+    <Compile Include="DTO\RoleDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnitOfWork.NET.VelocityDB.NUnit.Data\UnitOfWork.NET.VelocityDB.NUnit.Data.csproj">
+      <Project>{0bddd9c4-fda4-4a99-b4cd-92342ae4afe2}</Project>
+      <Name>UnitOfWork.NET.VelocityDB.NUnit.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UnitOfWork.NET.VelocityDB\UnitOfWork.NET.VelocityDB.csproj">
+      <Project>{b5b759e7-1696-40d0-bdba-36260e5b104d}</Project>
+      <Name>UnitOfWork.NET.VelocityDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

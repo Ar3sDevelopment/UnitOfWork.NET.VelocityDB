@@ -108,11 +108,11 @@ namespace UnitOfWork.NET.VelocityDB.Classes
         }
 
         public async Task<TDTO> InsertAsync(TDTO dto) => await new TaskFactory().StartNew(() => Insert(dto));
-        public async Task UpdateAsync(TDTO dto, params object[] ids) => await new TaskFactory().StartNew(() => Update(dto, ids));
+        public async Task UpdateAsync(TDTO dto, ulong id) => await new TaskFactory().StartNew(() => Update(dto, id));
         public async Task<IEnumerable<TDTO>> ListAsync(Func<TEntity, bool> expr) => await new TaskFactory().StartNew(() => List(expr));
         public async Task<IEnumerable<TDTO>> ListAsync() => await new TaskFactory().StartNew(List);
         public async Task<DataSourceResult<TDTO>> DataSourceAsync(int take, int skip, ICollection<Sort> sort, Filter filter, Func<TEntity, bool> expr) => await new TaskFactory().StartNew(() => DataSource(take, skip, sort, filter, expr));
         public async Task<TDTO> DTOAsync(Func<TEntity, bool> expr) => await new TaskFactory().StartNew(() => DTO(expr));
-        public async Task<TDTO> DTOAsync(params object[] ids) => await new TaskFactory().StartNew(() => DTO(ids));
+        public async Task<TDTO> DTOAsync(ulong id) => await new TaskFactory().StartNew(() => DTO(id));
     }
 }

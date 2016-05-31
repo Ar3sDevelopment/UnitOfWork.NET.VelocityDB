@@ -12,7 +12,7 @@ namespace UnitOfWork.NET.VelocityDB.Interfaces
         /// <summary>
         /// 
         /// </summary>
-        int SaveChanges();
+        void SaveChanges();
 
         /// <summary>
         /// 
@@ -46,11 +46,11 @@ namespace UnitOfWork.NET.VelocityDB.Interfaces
         /// <summary>
         /// 
         /// </summary>
-        new IVelocityRepository<TEntity> Repository<TEntity>() where TEntity : class, new();
+        new IVelocityRepository<TEntity> Repository<TEntity>() where TEntity : OptimizedPersistable, new();
 
         /// <summary>
         /// 
         /// </summary>
-        new IVelocityRepository<TEntity, TDTO> Repository<TEntity, TDTO>() where TEntity : class, new() where TDTO : class, new();
+        new IVelocityRepository<TEntity, TDTO> Repository<TEntity, TDTO>() where TEntity : OptimizedPersistable, new() where TDTO : class, new();
     }
 }

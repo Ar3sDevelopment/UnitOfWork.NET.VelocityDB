@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Autofac;
 using UnitOfWork.NET.Interfaces;
@@ -43,7 +44,13 @@ namespace UnitOfWork.NET.VelocityDB.Classes
             base.Dispose();
         }
 
-        public override IEnumerable<T> Data<T>() => _dbContext.AllObjects<T>().AsEnumerable();
+        public override IEnumerable<T> Data<T>()
+        {
+            _dbContext.BeginRead();
+            var res = _dbContext.AllObjects<T>().AsEnumerable();
+            _dbContext.Commit();
+            return res;
+        }
 
         public virtual void BeforeSaveChanges(SessionBase context)
         {
@@ -99,7 +106,7 @@ namespace UnitOfWork.NET.VelocityDB.Classes
 
         public void Transaction(Action<IVelocityUnitOfWork> body)
         {
-            using (var transaction = _dbContext.BeginTransaction())
+            using (var transaction = _dbContext.BeginRead())
             {
                 try
                 {
@@ -125,7 +132,7 @@ namespace UnitOfWork.NET.VelocityDB.Classes
 
         public bool TransactionSaveChanges(Action<IVelocityUnitOfWork> body)
         {
-            using (var transaction = _dbContext.BeginTransaction())
+            using (var transaction = _dbContext.BeginUpdate())
             {
                 try
                 {
@@ -146,8 +153,8 @@ namespace UnitOfWork.NET.VelocityDB.Classes
 
         //public DbSet<TEntity> Set<TEntity>() where TEntity : class, new() => _dbContext.Set<TEntity>();
 
-        public new IVelocityRepository<TEntity> IVelocityUnitOfWork.Repository<TEntity>() where TEntity : OptimizedPersistable, new() => base.Repository<TEntity>() as IVelocityRepository<TEntity>;
-        public new IVelocityRepository<TEntity, TDTO> IVelocityUnitOfWork.Repository<TEntity, TDTO>() where TEntity : OptimizedPersistable, new() where TDTO : class, new() => base.Repository<TEntity, TDTO>() as IVelocityRepository<TEntity, TDTO>;
+        public IVelocityRepository<TEntity> Repository<TEntity>() where TEntity : OptimizedPersistable, new() => base.Repository<TEntity>() as IVelocityRepository<TEntity>;
+        public IVelocityRepository<TEntity, TDTO> Repository<TEntity, TDTO>() where TEntity : OptimizedPersistable, new() where TDTO : class, new() => base.Repository<TEntity, TDTO>() as IVelocityRepository<TEntity, TDTO>;
 
         //private void CallOnSaveChanges<TEntity>(Dictionary<EntityState, IEnumerable<object>> entitiesObj) where TEntity : class, new()
         //{
@@ -159,9 +166,9 @@ namespace UnitOfWork.NET.VelocityDB.Classes
         public async Task SaveChangesAsync() => await new TaskFactory().StartNew(SaveChanges);
     }
 
-    public class EntityUnitOfWork<TContext> : VelocityUnitOfWork where TContext : SessionBase, new()
+    public class VelocityUnitOfWork<TContext> : VelocityUnitOfWork where TContext : SessionBase, new()
     {
-        public EntityUnitOfWork() : base(new TContext(), true)
+        public VelocityUnitOfWork() : base(new TContext(), true)
         {
         }
 
