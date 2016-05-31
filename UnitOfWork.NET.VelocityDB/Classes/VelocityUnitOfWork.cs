@@ -153,8 +153,8 @@ namespace UnitOfWork.NET.VelocityDB.Classes
 
         //public DbSet<TEntity> Set<TEntity>() where TEntity : class, new() => _dbContext.Set<TEntity>();
 
-        public IVelocityRepository<TEntity> Repository<TEntity>() where TEntity : OptimizedPersistable, new() => base.Repository<TEntity>() as IVelocityRepository<TEntity>;
-        public IVelocityRepository<TEntity, TDTO> Repository<TEntity, TDTO>() where TEntity : OptimizedPersistable, new() where TDTO : class, new() => base.Repository<TEntity, TDTO>() as IVelocityRepository<TEntity, TDTO>;
+        public new IVelocityRepository<TEntity> Repository<TEntity>() where TEntity : OptimizedPersistable, new() => base.Repository<TEntity>() as IVelocityRepository<TEntity>;
+        public new IVelocityRepository<TEntity, TDTO> Repository<TEntity, TDTO>() where TEntity : OptimizedPersistable, new() where TDTO : class, new() => base.Repository<TEntity, TDTO>() as IVelocityRepository<TEntity, TDTO>;
 
         //private void CallOnSaveChanges<TEntity>(Dictionary<EntityState, IEnumerable<object>> entitiesObj) where TEntity : class, new()
         //{
